@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Secure Chat</title>
+
+  <!-- Socket.IO -->
+  <script src="https://cdn.socket.io/4.6.1/socket.io.min.js"></script>
+
+  <!-- Crypto libraries -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jsrsasign/10.5.25/jsrsasign-all-min.js"></script>
+
+  <!-- Link to your JavaScript -->
+  <script src="/static/script.js"></script>
+
+  <style>
+    body { font-family: Arial; margin: 30px; }
+    input, button, select { margin: 5px; padding: 5px; }
+    #messages { list-style-type: none; padding: 0; }
+    #messages li { background: #f1f1f1; margin: 4px 0; padding: 6px; border-radius: 5px; }
+  </style>
+</head>
+<body>
+  <h2>Secure Chat</h2>
+
+  <label>Username:</label>
+  <input id="username" placeholder="Enter username">
+  <button onclick="join()">Join</button>
+  <br><br>
+
+  <label>Private Key:</label>
+  <input type="file" id="privateKeyFile">
+  <button type="button" onclick="loadPrivateKey()">Load Private Key</button><br>
+
+  <label>Public Key:</label>
+  <input type="file" id="publicKeyFile">
+  <button type="button" onclick="loadPublicKey()">Load Public Key</button>
+  <br><br>
+
+  <input id="message" placeholder="Type message">
+  <button onclick="sendMessage()">Send</button>
+
+  <ul id="messages"></ul>
+</body>
+</html>
